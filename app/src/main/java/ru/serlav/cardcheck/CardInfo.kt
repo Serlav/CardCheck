@@ -13,5 +13,9 @@ data class CardInfo(
     val emoji: String = "",
     val currency: String = "",
     val latitude: Int = 0,
-    val longitude: Int = 0
+    val longitude: Int = 0,
+    val bankName: String = "",
+    val url: String = "",
+    val phone: String = "",
+    val city: String = ""
 )

@@ -18,16 +18,17 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var num: Int
 
-        with(binding) {
-            search.setOnClickListener {
-                num = Integer.parseInt(bin.text.toString())
-                cardCheck(num)
-                //     scheme.text= parseCardInfo().scheme
+        fun bind(card: CardInfo) {
+            with(binding) {
+                search.setOnClickListener {
+                    val num = Integer.parseInt(bin.text.toString())
+                    cardCheck(num)
+                    scheme.text = card.scheme
+                    type.text = card.type
+                }
             }
         }
-
     }
 
 
@@ -40,7 +41,7 @@ class MainActivity : AppCompatActivity() {
             { result ->
                 Log.d("MyLog", "Result: $result")
                 parseCardInfo(result)
-                parseBankInfo(result)
+                // parseBankInfo(result)
             },
             { error ->
                 Log.d("MyLog", "EroR: $error")
@@ -65,6 +66,11 @@ class MainActivity : AppCompatActivity() {
             mainObject.getJSONObject("country").getString("currency"),
             mainObject.getJSONObject("country").getInt("latitude"),
             mainObject.getJSONObject("country").getInt("longitude"),
+
+            mainObject.getJSONObject("bank").getString("name"),
+            mainObject.getJSONObject("bank").getString("url"),
+            mainObject.getJSONObject("bank").getString("phone"),
+            mainObject.getJSONObject("bank").getString("city")
         )
 
         Log.d("MyLog", "length: ${item.length}")
@@ -81,23 +87,12 @@ class MainActivity : AppCompatActivity() {
         Log.d("MyLog", "latitude: ${item.latitude}")
         Log.d("MyLog", "longitude: ${item.longitude}")
 
-        println(item)
+
+        Log.d("MyLog", "name: ${item.name}")
+        Log.d("MyLog", "url: ${item.url}")
+        Log.d("MyLog", "phone: ${item.phone}")
+        Log.d("MyLog", "city: ${item.city}")
+        Log.d("MyLog", "ITEM: $item")
         return item
     }
-
-    private fun parseBankInfo(result: String): BankInfo {
-        val mainObject = JSONObject(result)
-        val item2 = BankInfo(
-            mainObject.getJSONObject("bank").getString("name"),
-            mainObject.getJSONObject("bank").getString("url"),
-            mainObject.getJSONObject("bank").getString("phone"),
-            // mainObject.getJSONObject("bank").getString("city")
-        )
-        Log.d("MyLog", "name: ${item2.name}")
-        Log.d("MyLog", "url: ${item2.url}")
-        Log.d("MyLog", "phone: ${item2.phone}")
-        Log.d("MyLog", "city: ${item2.city}")
-        return item2
-    }
-
 }
