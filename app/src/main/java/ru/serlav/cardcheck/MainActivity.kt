@@ -18,19 +18,19 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+    }
 
-        fun bind(card: CardInfo) {
-            with(binding) {
-                search.setOnClickListener {
-                    val num = Integer.parseInt(bin.text.toString())
-                    cardCheck(num)
-                    scheme.text = card.scheme
-                    type.text = card.type
-                }
+    fun bind(card: CardInfo) {
+        with(binding) {
+            search.setOnClickListener {
+                val num = Integer.parseInt(bin.text.toString())
+                cardCheck(num)
+                scheme.text = card.scheme
+                type.text = card.type
+                brand.text = card.brand
             }
         }
     }
-
 
     private fun cardCheck(num: Int) {
         val url = "https://lookup.binlist.net/$num"
@@ -41,7 +41,6 @@ class MainActivity : AppCompatActivity() {
             { result ->
                 Log.d("MyLog", "Result: $result")
                 parseCardInfo(result)
-                // parseBankInfo(result)
             },
             { error ->
                 Log.d("MyLog", "EroR: $error")
@@ -50,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         queue.add(request)
     }
 
-    private fun parseCardInfo(result: String): CardInfo {
+    private fun parseCardInfo(result: String) {
         val mainObject = JSONObject(result)
         val item = CardInfo(
             mainObject.getJSONObject("number").getInt("length"),
@@ -93,6 +92,6 @@ class MainActivity : AppCompatActivity() {
         Log.d("MyLog", "phone: ${item.phone}")
         Log.d("MyLog", "city: ${item.city}")
         Log.d("MyLog", "ITEM: $item")
-        return item
+
     }
 }
