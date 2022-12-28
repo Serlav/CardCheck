@@ -29,10 +29,7 @@ class MainViewModel : ViewModel() {
 
             mainObject.getJSONObject("bank").getString("name"),
             mainObject.getJSONObject("bank").getString("url"),
-            mainObject.getJSONObject("bank").getString("phone"),
-            //  mainObject.getJSONObject("bank").getString("city")
+            mainObject.getJSONObject("bank").getString("phone")
         )
-
-        Log.d("MyLog", "length: ${resultText.value!!.length}")
     }
 }

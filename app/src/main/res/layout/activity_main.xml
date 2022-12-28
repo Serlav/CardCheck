@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#C0C1C3"
+    android:layout_height="wrap_content"
+    android:isScrollContainer="true"
     tools:context=".MainActivity">
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:text="BANK"
+        android:text="@string/bank"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/luhn" />
 
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="SCHEME / NETWORK"
+        android:text="@string/scheme_network"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bin" />
 
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="BRAND"
+        android:text="@string/brand"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scheme" />
 
@@ -84,10 +84,11 @@
         android:layout_height="18dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
-        android:text="LUHN"
+        android:text="@string/luhn"
         android:textSize="10sp"
         app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        tools:ignore="SmallSp" />
 
     <TextView
         android:id="@+id/textView6"
@@ -95,7 +96,7 @@
         android:layout_height="18dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="CARD NUMBER"
+        android:text="@string/card_number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/brand" />
 
@@ -114,10 +115,11 @@
         android:layout_height="18dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
-        android:text="LENGTH"
+        android:text="@string/length"
         android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        tools:ignore="SmallSp" />
 
     <TextView
         android:id="@+id/scheme"
@@ -135,7 +137,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="86dp"
         android:layout_marginTop="16dp"
-        android:text="TYPE"
+        android:text="@string/type"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/bin" />
 
@@ -145,7 +147,7 @@
         android:layout_height="18dp"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="8dp"
-        android:text="BIN/IIN"
+        android:text="@string/bin_iin"
         app:layout_constraintBottom_toBottomOf="@+id/bin"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -154,7 +156,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="COUNTRY"
+        android:text="@string/country"
         app:layout_constraintStart_toStartOf="@+id/prepaid"
         app:layout_constraintTop_toBottomOf="@+id/prepaid" />
 
@@ -188,7 +190,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="PREPAID"
+        android:text="@string/prepaid"
         app:layout_constraintStart_toStartOf="@+id/type"
         app:layout_constraintTop_toBottomOf="@+id/type" />
 
